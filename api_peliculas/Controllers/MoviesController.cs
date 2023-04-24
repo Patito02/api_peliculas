@@ -22,6 +22,11 @@ namespace api_peliculas.Controllers
             MovieModel movieList = new MovieModel();
             movieList.TitleYear = new List<string>();
 
+            if (dataResult.Results.Count == 0)
+            {
+                return NotFound("No se encontraron resultados");
+            }
+
             movieList.Title = dataResult.Results[0].Title;
             movieList.Original_Title = dataResult.Results[0].original_title;
             movieList.Vote_Average = dataResult.Results[0].vote_average;
